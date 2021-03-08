@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Stained Glass Material
+  m_Shader: {fileID: 4800000, guid: f0f868386c9924a3395a38a0797ca2f8, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Background:
+        m_Texture: {fileID: 2800000, guid: fa7e220a9673441a29b1c487330f552f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Background2:
+        m_Texture: {fileID: 2800000, guid: bc138eff2b2e648068c846130d19e88d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionMap:
+        m_Texture: {fileID: 2800000, guid: 245a7aa1eb9f140cbbf1d412387f2773, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionMap2:
+        m_Texture: {fileID: 2800000, guid: 2d41b1481008342b1a8e378a78735bbd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionMap3:
+        m_Texture: {fileID: 2800000, guid: 1503692975d480648acfbfc932e99c1f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Midground:
+        m_Texture: {fileID: 2800000, guid: e26f86b76f67c48189419bd5f10a0cff, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BackgroundFade2: 1
+    - _BackgroundScaleX: 1
+    - _BackgroundScaleX2: 1
+    - _BackgroundScaleY: 0.9
+    - _BackgroundScaleY2: 0.2
+    - _BackgroundScrollX: 0
+    - _BackgroundScrollX2: 0.286
+    - _BackgroundScrollY: 0
+    - _BackgroundScrollY2: -0.01
+    - _DistortionPower: 0.15
+    - _DistortionPower2: 0.27
+    - _DistortionPower3: 0.1
+    - _DistortionScaleX: 1
+    - _DistortionScaleX2: 1
+    - _DistortionScaleX3: 1
+    - _DistortionScaleY: 1
+    - _DistortionScaleY2: 0.5
+    - _DistortionScaleY3: 0.9
+    - _DistortionScrollX: 0
+    - _DistortionScrollX2: 0
+    - _DistortionScrollX3: 0
+    - _DistortionScrollY: 0
+    - _DistortionScrollY2: 5
+    - _DistortionScrollY3: 0.14
+    - _MidgroundFade: 0.48076925
+    - _MidgroundScaleX: 1
+    - _MidgroundScaleY: 1
+    - _MidgroundScrollX: 0
+    - _MidgroundScrollY: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}

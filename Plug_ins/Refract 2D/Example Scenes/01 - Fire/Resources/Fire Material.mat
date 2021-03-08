@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Fire Material
+  m_Shader: {fileID: 4800000, guid: 5dc5f7663f4bffb4a83a9f919b927fe1, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Background:
+        m_Texture: {fileID: 2800000, guid: 37474cbdb41b54bb1972d9f6b9f2c323, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionMap:
+        m_Texture: {fileID: 2800000, guid: 2d41b1481008342b1a8e378a78735bbd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionMap2:
+        m_Texture: {fileID: 2800000, guid: 19a3730adadc24044825eda99175cb49, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionMap3:
+        m_Texture: {fileID: 2800000, guid: 2d41b1481008342b1a8e378a78735bbd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionMap4:
+        m_Texture: {fileID: 2800000, guid: 19a3730adadc24044825eda99175cb49, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BackgroundScaleX: 1
+    - _BackgroundScaleY: 0.5
+    - _BackgroundScrollX: 0
+    - _BackgroundScrollY: 0.18
+    - _DistortionPower: 0.07
+    - _DistortionPower2: 0.06
+    - _DistortionPower3: 0.05
+    - _DistortionPower4: 0.03
+    - _DistortionScaleX: 1
+    - _DistortionScaleX2: 0.5
+    - _DistortionScaleX3: 1
+    - _DistortionScaleX4: 1
+    - _DistortionScaleY: 0.5
+    - _DistortionScaleY2: 1
+    - _DistortionScaleY3: 0.5
+    - _DistortionScaleY4: 0.5
+    - _DistortionScrollX: 0
+    - _DistortionScrollX2: 0
+    - _DistortionScrollX3: 0
+    - _DistortionScrollX4: 0
+    - _DistortionScrollY: 0
+    - _DistortionScrollY2: 0.5
+    - _DistortionScrollY3: 0.14
+    - _DistortionScrollY4: 0
+    - _Refraction: 0.61
+    - _Refraction2: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}

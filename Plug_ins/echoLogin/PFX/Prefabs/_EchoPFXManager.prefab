@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400000}
+  - component: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: _EchoPFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5a6436fcfd848a9961ca5a357f1a1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ergList:
+  - name: RenderGroup:0
+    id: 0
+    passCount: 0
+    active: 0
+    cameraDepthStart: -1
+    cameraDepthEnd: 0
+    meshCellWidth: 16
+    meshCellHeight: 16
+    rtAdjustSize: 0
+    rtAdjustWidth: 0
+    rtAdjustHeight: 0
+    rtFilterMode: 0000000000000000
+    rtBlendMode: 0000000000000000
+    epeList:
+    - passOpt1: []
+      passOpt2: []
+      passActive: 0000
+      name: New Effect
+      active: 0
+      optionsTotal: 0
+      optionsOff: 0
+    autoDetailMin: 0.5
+    autoDetailLevels: 3
+    autoDetailFudge: 0.5
+    autoDetailChangeTime: 0.25
+    possibleOpts1: []
+    possibleOpts2: []
+  managerCameraDepth: 10
+  frameRate: 60

@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Aquarium Material
+  m_Shader: {fileID: 4800000, guid: 30958c724c2564e1d8197a28406b0081, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Background:
+        m_Texture: {fileID: 2800000, guid: f56467f928f9e4b4c8c3ae6b9fb6c4e0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Background2:
+        m_Texture: {fileID: 2800000, guid: bccf06d9813bbd14d9a84e79642a2283, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Background3:
+        m_Texture: {fileID: 2800000, guid: c9eadc78aabe003499237cc5e2cec08d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionMap:
+        m_Texture: {fileID: 2800000, guid: 3b7ee9015b01b754d89b75054b7cc3d5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Midground:
+        m_Texture: {fileID: 2800000, guid: 16e82045a99de467494e09f9d9564712, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BackgroundFade2: 1
+    - _BackgroundFade3: 1
+    - _BackgroundScaleX: 2
+    - _BackgroundScaleX2: 0.5
+    - _BackgroundScaleX3: 1
+    - _BackgroundScaleY: 1
+    - _BackgroundScaleY2: 1
+    - _BackgroundScaleY3: 1
+    - _BackgroundScrollX: 0
+    - _BackgroundScrollX2: 0.06
+    - _BackgroundScrollX3: 0.25
+    - _BackgroundScrollY: 0
+    - _BackgroundScrollY2: 0
+    - _BackgroundScrollY3: 0.06
+    - _DistortionPower: 0.08
+    - _DistortionScaleX: 2
+    - _DistortionScaleY: 2
+    - _DistortionScrollX: 0
+    - _DistortionScrollY: 0
+    - _MidgroundFade: 1
+    - _MidgroundScaleX: 1
+    - _MidgroundScaleY: 1
+    - _MidgroundScrollX: 0
+    - _MidgroundScrollY: 0
+    - _Refraction: 0.4
+    - _Refraction2: 2
+    - _Refraction3: 2.63
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}

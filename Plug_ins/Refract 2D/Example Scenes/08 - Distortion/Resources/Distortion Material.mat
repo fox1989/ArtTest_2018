@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Distortion Material
+  m_Shader: {fileID: 4800000, guid: 5dc5f7663f4bffb4a83a9f919b927fe1, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Background:
+        m_Texture: {fileID: 2800000, guid: e2a6703588394ea4b993706a5a6a8a5a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionMap:
+        m_Texture: {fileID: 2800000, guid: 777dc54c0c831b3488ed73ba00991b16, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionMap2:
+        m_Texture: {fileID: 2800000, guid: aab02dfffebeb4a42bf561972142c647, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionMap3:
+        m_Texture: {fileID: 2800000, guid: a604f5e4fbf07b945ad2cdaa7dc13179, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionMap4:
+        m_Texture: {fileID: 2800000, guid: 17530918568e6dc48a343b032c5bfdc2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BackgroundScaleX: 1
+    - _BackgroundScaleY: 1
+    - _BackgroundScrollX: 0
+    - _BackgroundScrollY: -0.1
+    - _DistortionPower: 0.08
+    - _DistortionPower2: 0.08
+    - _DistortionPower3: 0.08
+    - _DistortionPower4: 0.08
+    - _DistortionScaleX: 1
+    - _DistortionScaleX2: 1
+    - _DistortionScaleX3: 1
+    - _DistortionScaleX4: 1
+    - _DistortionScaleY: 1
+    - _DistortionScaleY2: 1
+    - _DistortionScaleY3: 1
+    - _DistortionScaleY4: 1
+    - _DistortionScrollX: 0
+    - _DistortionScrollX2: 0
+    - _DistortionScrollX3: 0
+    - _DistortionScrollX4: 0
+    - _DistortionScrollY: 0
+    - _DistortionScrollY2: 0
+    - _DistortionScrollY3: 0
+    - _DistortionScrollY4: 0
+    - _Refraction: 10
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}

@@ -1,0 +1,641 @@
+<?xml version="1.0"?>
+<PostFX FPS="60" DEPTH="10">
+  <RenderGroup>
+    <name>RenderGroup:0</name>
+    <id>0</id>
+    <passCount>0</passCount>
+    <active>False</active>
+    <cameraDepthStart>-1</cameraDepthStart>
+    <cameraDepthEnd>2</cameraDepthEnd>
+    <meshCellWidth>32</meshCellWidth>
+    <meshCellHeight>32</meshCellHeight>
+    <rtAdjustSize>AUTO_DETAIL</rtAdjustSize>
+    <rtAdjustWidth>2</rtAdjustWidth>
+    <rtAdjustHeight>2</rtAdjustHeight>
+    <rtFilterMode1>Point</rtFilterMode1>
+    <rtFilterMode2>Point</rtFilterMode2>
+    <rtBlendMode1>NORMAL</rtBlendMode1>
+    <rtBlendMode2>NORMAL</rtBlendMode2>
+    <PossibleOpts1>
+      <Option>
+        <type>GREYSCALE</type>
+        <code>
+        </code>
+      </Option>
+      <Option>
+        <type>ADD</type>
+        <code>
+        </code>
+      </Option>
+      <Option>
+        <type>LUMRAMP</type>
+        <code>
+        </code>
+      </Option>
+      <Option>
+        <type>DISTORTION</type>
+        <code>
+        </code>
+      </Option>
+      <Option>
+        <type>SHOCKWAVE</type>
+        <code>
+        </code>
+      </Option>
+    </PossibleOpts1>
+    <PossibleOpts2>
+      <Option>
+        <type>MULTIPLY</type>
+        <code>
+        </code>
+      </Option>
+      <Option>
+        <type>NOISE</type>
+        <code>
+        </code>
+      </Option>
+      <Option>
+        <type>SCANLINES</type>
+        <code>
+        </code>
+      </Option>
+      <Option>
+        <type>OVERLAY_MULTIPLY</type>
+        <code>
+        </code>
+      </Option>
+      <Option>
+        <type>OVERLAY_ADD</type>
+        <code>
+        </code>
+      </Option>
+    </PossibleOpts2>
+    <Effects>
+      <Effect>
+        <name>Shockwave</name>
+        <active>False</active>
+        <OptionsPass1>
+          <Option>
+            <optType>SHOCKWAVE</optType>
+            <passOrder>4</passOrder>
+            <startDelay>0</startDelay>
+            <attackTime>0.2</attackTime>
+            <sustainTime>0.5</sustainTime>
+            <releaseTime>0.2</releaseTime>
+            <fadeMin>0</fadeMin>
+            <fadeMax>1</fadeMax>
+            <fadeCur>1</fadeCur>
+            <rgba>(1.0, 1.0, 1.0, 1.0)</rgba>
+            <rgbaMultiply>1</rgbaMultiply>
+            <distAmountH>1</distAmountH>
+            <distSpeedH>2</distSpeedH>
+            <distStrengthH>1</distStrengthH>
+            <distAmountV>0</distAmountV>
+            <distSpeedV>0</distSpeedV>
+            <distStrengthV>0</distStrengthV>
+            <linesAmountDivideH>True</linesAmountDivideH>
+            <linesAmountH>256</linesAmountH>
+            <linesScrollH>0</linesScrollH>
+            <linesAmountDivideV>True</linesAmountDivideV>
+            <linesAmountV>4</linesAmountV>
+            <linesScrollV>0</linesScrollV>
+            <shockDistance>0.071</shockDistance>
+            <shockSize>0.108</shockSize>
+            <shockCenterX>0.5</shockCenterX>
+            <shockCenterY>0.5</shockCenterY>
+            <tex>
+            </tex>
+            <texBlend>NORMAL</texBlend>
+            <customArgs>(0.0, 0.0, 0.0, 0.0)</customArgs>
+            <overlayST>(1.0, 1.0, 0.0, 0.0)</overlayST>
+            <overlayST_Scroll>(0.0, 0.0, 0.0, 0.0)</overlayST_Scroll>
+          </Option>
+        </OptionsPass1>
+        <OptionsPass2 />
+      </Effect>
+      <Effect>
+        <name>ShieldHit</name>
+        <active>False</active>
+        <OptionsPass1>
+          <Option>
+            <optType>ADD</optType>
+            <passOrder>1</passOrder>
+            <startDelay>0</startDelay>
+            <attackTime>0</attackTime>
+            <sustainTime>0</sustainTime>
+            <releaseTime>1</releaseTime>
+            <fadeMin>0</fadeMin>
+            <fadeMax>0.28</fadeMax>
+            <fadeCur>0.28</fadeCur>
+            <rgba>(1.0, 0.0, 0.0, 1.0)</rgba>
+            <rgbaMultiply>1</rgbaMultiply>
+            <distAmountH>1</distAmountH>
+            <distSpeedH>2</distSpeedH>
+            <distStrengthH>1</distStrengthH>
+            <distAmountV>0</distAmountV>
+            <distSpeedV>0</distSpeedV>
+            <distStrengthV>0</distStrengthV>
+            <linesAmountDivideH>True</linesAmountDivideH>
+            <linesAmountH>256</linesAmountH>
+            <linesScrollH>0</linesScrollH>
+            <linesAmountDivideV>True</linesAmountDivideV>
+            <linesAmountV>4</linesAmountV>
+            <linesScrollV>0</linesScrollV>
+            <shockDistance>0</shockDistance>
+            <shockSize>0.1</shockSize>
+            <shockCenterX>0.5</shockCenterX>
+            <shockCenterY>0.5</shockCenterY>
+            <tex>
+            </tex>
+            <texBlend>NORMAL</texBlend>
+            <customArgs>(0.0, 0.0, 0.0, 0.0)</customArgs>
+            <overlayST>(1.0, 1.0, 0.0, 0.0)</overlayST>
+            <overlayST_Scroll>(0.0, 0.0, 0.0, 0.0)</overlayST_Scroll>
+          </Option>
+        </OptionsPass1>
+        <OptionsPass2>
+          <Option>
+            <optType>OVERLAY_ADD</optType>
+            <passOrder>4</passOrder>
+            <startDelay>0</startDelay>
+            <attackTime>0.05</attackTime>
+            <sustainTime>0</sustainTime>
+            <releaseTime>0.2</releaseTime>
+            <fadeMin>0</fadeMin>
+            <fadeMax>0.364</fadeMax>
+            <fadeCur>0</fadeCur>
+            <rgba>(1.0, 1.0, 1.0, 1.0)</rgba>
+            <rgbaMultiply>1</rgbaMultiply>
+            <distAmountH>1</distAmountH>
+            <distSpeedH>2</distSpeedH>
+            <distStrengthH>1</distStrengthH>
+            <distAmountV>0</distAmountV>
+            <distSpeedV>0</distSpeedV>
+            <distStrengthV>0</distStrengthV>
+            <linesAmountDivideH>True</linesAmountDivideH>
+            <linesAmountH>4</linesAmountH>
+            <linesScrollH>0</linesScrollH>
+            <linesAmountDivideV>True</linesAmountDivideV>
+            <linesAmountV>4</linesAmountV>
+            <linesScrollV>0</linesScrollV>
+            <shockDistance>0</shockDistance>
+            <shockSize>0.1</shockSize>
+            <shockCenterX>0.5</shockCenterX>
+            <shockCenterY>0.5</shockCenterY>
+            <tex>Assets/echoLogin/PFX/SampleProjects/Demo/Models/Textures/shield.psd</tex>
+            <texBlend>NORMAL</texBlend>
+            <customArgs>(0.0, 0.0, 0.0, 0.0)</customArgs>
+            <overlayST>(1.0, 1.0, 0.0, 0.0)</overlayST>
+            <overlayST_Scroll>(0.0, 0.0, 0.0, 0.0)</overlayST_Scroll>
+          </Option>
+        </OptionsPass2>
+      </Effect>
+      <Effect>
+        <name>NightVision</name>
+        <active>False</active>
+        <OptionsPass1>
+          <Option>
+            <optType>ADD</optType>
+            <passOrder>1</passOrder>
+            <startDelay>0</startDelay>
+            <attackTime>0.01</attackTime>
+            <sustainTime>0.2</sustainTime>
+            <releaseTime>0.3</releaseTime>
+            <fadeMin>0</fadeMin>
+            <fadeMax>0.866</fadeMax>
+            <fadeCur>0.866</fadeCur>
+            <rgba>(1.0, 1.0, 1.0, 1.0)</rgba>
+            <rgbaMultiply>1</rgbaMultiply>
+            <distAmountH>1</distAmountH>
+            <distSpeedH>2</distSpeedH>
+            <distStrengthH>1</distStrengthH>
+            <distAmountV>0</distAmountV>
+            <distSpeedV>0</distSpeedV>
+            <distStrengthV>0</distStrengthV>
+            <linesAmountDivideH>True</linesAmountDivideH>
+            <linesAmountH>256</linesAmountH>
+            <linesScrollH>0</linesScrollH>
+            <linesAmountDivideV>True</linesAmountDivideV>
+            <linesAmountV>4</linesAmountV>
+            <linesScrollV>0</linesScrollV>
+            <shockDistance>0</shockDistance>
+            <shockSize>0.1</shockSize>
+            <shockCenterX>0.5</shockCenterX>
+            <shockCenterY>0.5</shockCenterY>
+            <tex>
+            </tex>
+            <texBlend>NORMAL</texBlend>
+            <customArgs>(0.0, 0.0, 0.0, 0.0)</customArgs>
+            <overlayST>(1.0, 1.0, 0.0, 0.0)</overlayST>
+            <overlayST_Scroll>(0.0, 0.0, 0.0, 0.0)</overlayST_Scroll>
+          </Option>
+        </OptionsPass1>
+        <OptionsPass2>
+          <Option>
+            <optType>MULTIPLY</optType>
+            <passOrder>0</passOrder>
+            <startDelay>0.21</startDelay>
+            <attackTime>0.2</attackTime>
+            <sustainTime>3</sustainTime>
+            <releaseTime>1</releaseTime>
+            <fadeMin>0</fadeMin>
+            <fadeMax>1</fadeMax>
+            <fadeCur>1</fadeCur>
+            <rgba>(0.1, 0.9, 0.1, 1.0)</rgba>
+            <rgbaMultiply>4.58</rgbaMultiply>
+            <distAmountH>1</distAmountH>
+            <distSpeedH>2</distSpeedH>
+            <distStrengthH>1</distStrengthH>
+            <distAmountV>0</distAmountV>
+            <distSpeedV>0</distSpeedV>
+            <distStrengthV>0</distStrengthV>
+            <linesAmountDivideH>True</linesAmountDivideH>
+            <linesAmountH>256</linesAmountH>
+            <linesScrollH>0</linesScrollH>
+            <linesAmountDivideV>True</linesAmountDivideV>
+            <linesAmountV>4</linesAmountV>
+            <linesScrollV>0</linesScrollV>
+            <shockDistance>0</shockDistance>
+            <shockSize>0.1</shockSize>
+            <shockCenterX>0.5</shockCenterX>
+            <shockCenterY>0.5</shockCenterY>
+            <tex>
+            </tex>
+            <texBlend>NORMAL</texBlend>
+            <customArgs>(0.0, 0.0, 0.0, 0.0)</customArgs>
+            <overlayST>(1.0, 1.0, 0.0, 0.0)</overlayST>
+            <overlayST_Scroll>(0.0, 0.0, 0.0, 0.0)</overlayST_Scroll>
+          </Option>
+        </OptionsPass2>
+      </Effect>
+      <Effect>
+        <name>Scanlines</name>
+        <active>True</active>
+        <OptionsPass1>
+          <Option>
+            <optType>GREYSCALE</optType>
+            <passOrder>0</passOrder>
+            <startDelay>0</startDelay>
+            <attackTime>0</attackTime>
+            <sustainTime>2</sustainTime>
+            <releaseTime>0.7</releaseTime>
+            <fadeMin>0</fadeMin>
+            <fadeMax>1</fadeMax>
+            <fadeCur>1</fadeCur>
+            <rgba>(1.0, 1.0, 1.0, 1.0)</rgba>
+            <rgbaMultiply>1</rgbaMultiply>
+            <distAmountH>1</distAmountH>
+            <distSpeedH>2</distSpeedH>
+            <distStrengthH>1</distStrengthH>
+            <distAmountV>0</distAmountV>
+            <distSpeedV>0</distSpeedV>
+            <distStrengthV>0</distStrengthV>
+            <linesAmountDivideH>True</linesAmountDivideH>
+            <linesAmountH>256</linesAmountH>
+            <linesScrollH>0</linesScrollH>
+            <linesAmountDivideV>True</linesAmountDivideV>
+            <linesAmountV>4</linesAmountV>
+            <linesScrollV>0</linesScrollV>
+            <shockDistance>0</shockDistance>
+            <shockSize>0.1</shockSize>
+            <shockCenterX>0.5</shockCenterX>
+            <shockCenterY>0.5</shockCenterY>
+            <tex>
+            </tex>
+            <texBlend>NORMAL</texBlend>
+            <customArgs>(0.0, 0.0, 0.0, 0.0)</customArgs>
+            <overlayST>(1.0, 1.0, 0.0, 0.0)</overlayST>
+            <overlayST_Scroll>(0.0, 0.0, 0.0, 0.0)</overlayST_Scroll>
+          </Option>
+          <Option>
+            <optType>ADD</optType>
+            <passOrder>1</passOrder>
+            <startDelay>0</startDelay>
+            <attackTime>0</attackTime>
+            <sustainTime>0.1</sustainTime>
+            <releaseTime>0.5</releaseTime>
+            <fadeMin>0</fadeMin>
+            <fadeMax>1</fadeMax>
+            <fadeCur>1</fadeCur>
+            <rgba>(1.0, 1.0, 1.0, 1.0)</rgba>
+            <rgbaMultiply>1</rgbaMultiply>
+            <distAmountH>1</distAmountH>
+            <distSpeedH>2</distSpeedH>
+            <distStrengthH>1</distStrengthH>
+            <distAmountV>0</distAmountV>
+            <distSpeedV>0</distSpeedV>
+            <distStrengthV>0</distStrengthV>
+            <linesAmountDivideH>True</linesAmountDivideH>
+            <linesAmountH>256</linesAmountH>
+            <linesScrollH>0</linesScrollH>
+            <linesAmountDivideV>True</linesAmountDivideV>
+            <linesAmountV>4</linesAmountV>
+            <linesScrollV>0</linesScrollV>
+            <shockDistance>0</shockDistance>
+            <shockSize>0.1</shockSize>
+            <shockCenterX>0.5</shockCenterX>
+            <shockCenterY>0.5</shockCenterY>
+            <tex>
+            </tex>
+            <texBlend>NORMAL</texBlend>
+            <customArgs>(0.0, 0.0, 0.0, 0.0)</customArgs>
+            <overlayST>(1.0, 1.0, 0.0, 0.0)</overlayST>
+            <overlayST_Scroll>(0.0, 0.0, 0.0, 0.0)</overlayST_Scroll>
+          </Option>
+        </OptionsPass1>
+        <OptionsPass2>
+          <Option>
+            <optType>NOISE</optType>
+            <passOrder>1</passOrder>
+            <startDelay>0</startDelay>
+            <attackTime>0</attackTime>
+            <sustainTime>0</sustainTime>
+            <releaseTime>0</releaseTime>
+            <fadeMin>0</fadeMin>
+            <fadeMax>1</fadeMax>
+            <fadeCur>0.08</fadeCur>
+            <rgba>(1.0, 1.0, 1.0, 1.0)</rgba>
+            <rgbaMultiply>1</rgbaMultiply>
+            <distAmountH>1</distAmountH>
+            <distSpeedH>2</distSpeedH>
+            <distStrengthH>1</distStrengthH>
+            <distAmountV>0</distAmountV>
+            <distSpeedV>0</distSpeedV>
+            <distStrengthV>0</distStrengthV>
+            <linesAmountDivideH>True</linesAmountDivideH>
+            <linesAmountH>256</linesAmountH>
+            <linesScrollH>0</linesScrollH>
+            <linesAmountDivideV>True</linesAmountDivideV>
+            <linesAmountV>4</linesAmountV>
+            <linesScrollV>0</linesScrollV>
+            <shockDistance>0</shockDistance>
+            <shockSize>0.1</shockSize>
+            <shockCenterX>0.5</shockCenterX>
+            <shockCenterY>0.5</shockCenterY>
+            <tex>Assets/echoLogin/PFX/Textures/static.psd</tex>
+            <texBlend>NORMAL</texBlend>
+            <customArgs>(0.0, 0.0, 0.0, 0.0)</customArgs>
+            <overlayST>(1.0, 1.0, 0.0, 0.0)</overlayST>
+            <overlayST_Scroll>(0.0, 0.0, 0.0, 0.0)</overlayST_Scroll>
+          </Option>
+          <Option>
+            <optType>SCANLINES</optType>
+            <passOrder>2</passOrder>
+            <startDelay>0</startDelay>
+            <attackTime>0</attackTime>
+            <sustainTime>0</sustainTime>
+            <releaseTime>0</releaseTime>
+            <fadeMin>0</fadeMin>
+            <fadeMax>1</fadeMax>
+            <fadeCur>0.346</fadeCur>
+            <rgba>(1.0, 1.0, 1.0, 1.0)</rgba>
+            <rgbaMultiply>1</rgbaMultiply>
+            <distAmountH>1</distAmountH>
+            <distSpeedH>2</distSpeedH>
+            <distStrengthH>1</distStrengthH>
+            <distAmountV>0</distAmountV>
+            <distSpeedV>0</distSpeedV>
+            <distStrengthV>0</distStrengthV>
+            <linesAmountDivideH>True</linesAmountDivideH>
+            <linesAmountH>2</linesAmountH>
+            <linesScrollH>0</linesScrollH>
+            <linesAmountDivideV>True</linesAmountDivideV>
+            <linesAmountV>4</linesAmountV>
+            <linesScrollV>0</linesScrollV>
+            <shockDistance>0</shockDistance>
+            <shockSize>0.1</shockSize>
+            <shockCenterX>0.5</shockCenterX>
+            <shockCenterY>0.5</shockCenterY>
+            <tex>
+            </tex>
+            <texBlend>NORMAL</texBlend>
+            <customArgs>(0.0, 0.0, 0.0, 0.0)</customArgs>
+            <overlayST>(1.0, 1.0, 0.0, 0.0)</overlayST>
+            <overlayST_Scroll>(0.0, 0.0, 0.0, 0.0)</overlayST_Scroll>
+          </Option>
+          <Option>
+            <optType>OVERLAY_MULTIPLY</optType>
+            <passOrder>3</passOrder>
+            <startDelay>0</startDelay>
+            <attackTime>0</attackTime>
+            <sustainTime>0</sustainTime>
+            <releaseTime>0</releaseTime>
+            <fadeMin>0</fadeMin>
+            <fadeMax>1</fadeMax>
+            <fadeCur>0.406</fadeCur>
+            <rgba>(1.0, 1.0, 1.0, 1.0)</rgba>
+            <rgbaMultiply>1</rgbaMultiply>
+            <distAmountH>1</distAmountH>
+            <distSpeedH>2</distSpeedH>
+            <distStrengthH>1</distStrengthH>
+            <distAmountV>0</distAmountV>
+            <distSpeedV>0</distSpeedV>
+            <distStrengthV>0</distStrengthV>
+            <linesAmountDivideH>True</linesAmountDivideH>
+            <linesAmountH>4</linesAmountH>
+            <linesScrollH>0</linesScrollH>
+            <linesAmountDivideV>True</linesAmountDivideV>
+            <linesAmountV>4</linesAmountV>
+            <linesScrollV>0</linesScrollV>
+            <shockDistance>0</shockDistance>
+            <shockSize>0.1</shockSize>
+            <shockCenterX>0.5</shockCenterX>
+            <shockCenterY>0.5</shockCenterY>
+            <tex>Assets/echoLogin/PFX/Textures/multvignette_circular.psd</tex>
+            <texBlend>NORMAL</texBlend>
+            <customArgs>(0.0, 0.0, 0.0, 0.0)</customArgs>
+            <overlayST>(1.0, 1.0, 0.0, 0.0)</overlayST>
+            <overlayST_Scroll>(0.0, 0.0, 0.0, 0.0)</overlayST_Scroll>
+          </Option>
+        </OptionsPass2>
+      </Effect>
+      <Effect>
+        <name>Distortion</name>
+        <active>False</active>
+        <OptionsPass1>
+          <Option>
+            <optType>DISTORTION</optType>
+            <passOrder>3</passOrder>
+            <startDelay>0</startDelay>
+            <attackTime>1</attackTime>
+            <sustainTime>-1</sustainTime>
+            <releaseTime>2</releaseTime>
+            <fadeMin>0</fadeMin>
+            <fadeMax>1</fadeMax>
+            <fadeCur>1</fadeCur>
+            <rgba>(1.0, 1.0, 1.0, 1.0)</rgba>
+            <rgbaMultiply>1</rgbaMultiply>
+            <distAmountH>64</distAmountH>
+            <distSpeedH>4</distSpeedH>
+            <distStrengthH>0.4</distStrengthH>
+            <distAmountV>32</distAmountV>
+            <distSpeedV>8</distSpeedV>
+            <distStrengthV>0.3</distStrengthV>
+            <linesAmountDivideH>True</linesAmountDivideH>
+            <linesAmountH>256</linesAmountH>
+            <linesScrollH>0</linesScrollH>
+            <linesAmountDivideV>True</linesAmountDivideV>
+            <linesAmountV>4</linesAmountV>
+            <linesScrollV>0</linesScrollV>
+            <shockDistance>0</shockDistance>
+            <shockSize>0.1</shockSize>
+            <shockCenterX>0.5</shockCenterX>
+            <shockCenterY>0.5</shockCenterY>
+            <tex>
+            </tex>
+            <texBlend>NORMAL</texBlend>
+            <customArgs>(0.0, 0.0, 0.0, 0.0)</customArgs>
+            <overlayST>(1.0, 1.0, 0.0, 0.0)</overlayST>
+            <overlayST_Scroll>(0.0, 0.0, 0.0, 0.0)</overlayST_Scroll>
+          </Option>
+        </OptionsPass1>
+        <OptionsPass2 />
+      </Effect>
+      <Effect>
+        <name>Thermal</name>
+        <active>False</active>
+        <OptionsPass1>
+          <Option>
+            <optType>ADD</optType>
+            <passOrder>1</passOrder>
+            <startDelay>0</startDelay>
+            <attackTime>0.05</attackTime>
+            <sustainTime>0.1</sustainTime>
+            <releaseTime>1.2</releaseTime>
+            <fadeMin>0</fadeMin>
+            <fadeMax>1</fadeMax>
+            <fadeCur>1</fadeCur>
+            <rgba>(1.0, 1.0, 1.0, 1.0)</rgba>
+            <rgbaMultiply>1</rgbaMultiply>
+            <distAmountH>1</distAmountH>
+            <distSpeedH>2</distSpeedH>
+            <distStrengthH>1</distStrengthH>
+            <distAmountV>0</distAmountV>
+            <distSpeedV>0</distSpeedV>
+            <distStrengthV>0</distStrengthV>
+            <linesAmountDivideH>True</linesAmountDivideH>
+            <linesAmountH>256</linesAmountH>
+            <linesScrollH>0</linesScrollH>
+            <linesAmountDivideV>True</linesAmountDivideV>
+            <linesAmountV>4</linesAmountV>
+            <linesScrollV>0</linesScrollV>
+            <shockDistance>0</shockDistance>
+            <shockSize>0.1</shockSize>
+            <shockCenterX>0.5</shockCenterX>
+            <shockCenterY>0.5</shockCenterY>
+            <tex>
+            </tex>
+            <texBlend>NORMAL</texBlend>
+            <customArgs>(0.0, 0.0, 0.0, 0.0)</customArgs>
+            <overlayST>(1.0, 1.0, 0.0, 0.0)</overlayST>
+            <overlayST_Scroll>(0.0, 0.0, 0.0, 0.0)</overlayST_Scroll>
+          </Option>
+          <Option>
+            <optType>LUMRAMP</optType>
+            <passOrder>2</passOrder>
+            <startDelay>0</startDelay>
+            <attackTime>0.1</attackTime>
+            <sustainTime>2</sustainTime>
+            <releaseTime>0.5</releaseTime>
+            <fadeMin>0</fadeMin>
+            <fadeMax>1</fadeMax>
+            <fadeCur>1</fadeCur>
+            <rgba>(1.0, 1.0, 1.0, 1.0)</rgba>
+            <rgbaMultiply>1</rgbaMultiply>
+            <distAmountH>1</distAmountH>
+            <distSpeedH>2</distSpeedH>
+            <distStrengthH>1</distStrengthH>
+            <distAmountV>0</distAmountV>
+            <distSpeedV>0</distSpeedV>
+            <distStrengthV>0</distStrengthV>
+            <linesAmountDivideH>True</linesAmountDivideH>
+            <linesAmountH>256</linesAmountH>
+            <linesScrollH>0</linesScrollH>
+            <linesAmountDivideV>True</linesAmountDivideV>
+            <linesAmountV>4</linesAmountV>
+            <linesScrollV>0</linesScrollV>
+            <shockDistance>0</shockDistance>
+            <shockSize>0.1</shockSize>
+            <shockCenterX>0.5</shockCenterX>
+            <shockCenterY>0.5</shockCenterY>
+            <tex>Assets/echoLogin/PFX/Textures/ThermalRamp1.psd</tex>
+            <texBlend>NORMAL</texBlend>
+            <customArgs>(0.0, 0.0, 0.0, 0.0)</customArgs>
+            <overlayST>(1.0, 1.0, 0.0, 0.0)</overlayST>
+            <overlayST_Scroll>(0.0, 0.0, 0.0, 0.0)</overlayST_Scroll>
+          </Option>
+        </OptionsPass1>
+        <OptionsPass2 />
+      </Effect>
+    </Effects>
+  </RenderGroup>
+  <RenderGroup>
+    <name>RenderGroup:1</name>
+    <id>1</id>
+    <passCount>0</passCount>
+    <active>False</active>
+    <cameraDepthStart>3</cameraDepthStart>
+    <cameraDepthEnd>4</cameraDepthEnd>
+    <meshCellWidth>2</meshCellWidth>
+    <meshCellHeight>2</meshCellHeight>
+    <rtAdjustSize>DIVIDE</rtAdjustSize>
+    <rtAdjustWidth>8</rtAdjustWidth>
+    <rtAdjustHeight>36</rtAdjustHeight>
+    <rtFilterMode1>Bilinear</rtFilterMode1>
+    <rtFilterMode2>Point</rtFilterMode2>
+    <rtBlendMode1>SCREEN</rtBlendMode1>
+    <rtBlendMode2>NORMAL</rtBlendMode2>
+    <PossibleOpts1>
+      <Option>
+        <type>SCANLINES</type>
+        <code>
+        </code>
+      </Option>
+    </PossibleOpts1>
+    <PossibleOpts2 />
+    <Effects>
+      <Effect>
+        <name>New Effect</name>
+        <active>True</active>
+        <OptionsPass1>
+          <Option>
+            <optType>SCANLINES</optType>
+            <passOrder>0</passOrder>
+            <startDelay>0</startDelay>
+            <attackTime>0</attackTime>
+            <sustainTime>0</sustainTime>
+            <releaseTime>0</releaseTime>
+            <fadeMin>0</fadeMin>
+            <fadeMax>1</fadeMax>
+            <fadeCur>0.414</fadeCur>
+            <rgba>(1.0, 1.0, 1.0, 1.0)</rgba>
+            <rgbaMultiply>1</rgbaMultiply>
+            <distAmountH>1</distAmountH>
+            <distSpeedH>2</distSpeedH>
+            <distStrengthH>1</distStrengthH>
+            <distAmountV>0</distAmountV>
+            <distSpeedV>0</distSpeedV>
+            <distStrengthV>0</distStrengthV>
+            <linesAmountDivideH>True</linesAmountDivideH>
+            <linesAmountH>2</linesAmountH>
+            <linesScrollH>8</linesScrollH>
+            <linesAmountDivideV>True</linesAmountDivideV>
+            <linesAmountV>2</linesAmountV>
+            <linesScrollV>4</linesScrollV>
+            <shockDistance>0</shockDistance>
+            <shockSize>0.1</shockSize>
+            <shockCenterX>0.5</shockCenterX>
+            <shockCenterY>0.5</shockCenterY>
+            <tex>
+            </tex>
+            <texBlend>NORMAL</texBlend>
+            <customArgs>(0.0, 0.0, 0.0, 0.0)</customArgs>
+            <overlayST>(1.0, 1.0, 0.0, 0.0)</overlayST>
+            <overlayST_Scroll>(0.0, 0.0, 0.0, 0.0)</overlayST_Scroll>
+          </Option>
+        </OptionsPass1>
+        <OptionsPass2 />
+      </Effect>
+    </Effects>
+  </RenderGroup>
+</PostFX>

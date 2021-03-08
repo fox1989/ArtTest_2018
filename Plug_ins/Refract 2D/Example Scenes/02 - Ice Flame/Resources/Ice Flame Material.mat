@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ice Flame Material
+  m_Shader: {fileID: 4800000, guid: e776cbd0568ca05499ce3a12d162c15f, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Background:
+        m_Texture: {fileID: 2800000, guid: 232fc8bee36a440b496c5eba4724e2ad, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionMap:
+        m_Texture: {fileID: 2800000, guid: 2d41b1481008342b1a8e378a78735bbd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionMap2:
+        m_Texture: {fileID: 2800000, guid: 2d41b1481008342b1a8e378a78735bbd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistortionMap3:
+        m_Texture: {fileID: 2800000, guid: 32dcd060938624973b009d9a7abfaf65, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BackgroundScaleX: 1
+    - _BackgroundScaleY: 0.65
+    - _BackgroundScrollX: 0
+    - _BackgroundScrollY: 0.13
+    - _DistortionPower: 0.05
+    - _DistortionPower2: 0.27
+    - _DistortionPower3: 0.1
+    - _DistortionScaleX: 1
+    - _DistortionScaleX2: 1
+    - _DistortionScaleX3: 1
+    - _DistortionScaleY: 0.5
+    - _DistortionScaleY2: 0.5
+    - _DistortionScaleY3: 0.9
+    - _DistortionScrollX: 0
+    - _DistortionScrollX2: 0
+    - _DistortionScrollX3: 0
+    - _DistortionScrollY: 0
+    - _DistortionScrollY2: 0.5
+    - _DistortionScrollY3: 0.014
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
