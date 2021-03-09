@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
-public class Map : MonoBehaviour
+
+public class MapEditor : MonoBehaviour
 {
 
     GridLayout grid;
@@ -20,10 +23,18 @@ public class Map : MonoBehaviour
 
     private GameObject currPrefab;
 
+    #region UI
 
     public GameObject cubeTypes;
 
     public GameObject brushTypes;
+
+    public InputField saveName;
+
+
+    #endregion
+
+
 
 
     public enum BrushType
@@ -45,6 +56,9 @@ public class Map : MonoBehaviour
 
 
     public CubeType cubeType;
+
+    private Dictionary<GameObject, Vector3Int> chunks = new Dictionary<GameObject, Vector3Int>();
+    private HashSet<Vector3Int> chunkCoords = new HashSet<Vector3Int>();
 
     // Start is called before the first frame update
     void Start()
@@ -190,6 +204,10 @@ public class Map : MonoBehaviour
         cube.transform.position = WorldToCenter(hitPoint);
         cube.SetActive(true);
         SelectGo(cube);
+        cube.name = cubeType.ToString();
+        Vector3Int key = grid.WorldToCell(hitPoint);
+        chunks.Add(cube, key);
+        chunkCoords.Add(key);
     }
 
 
@@ -197,6 +215,10 @@ public class Map : MonoBehaviour
     {
         if (hit.collider.gameObject.tag == "cube")
         {
+
+            chunkCoords.Remove(chunks[hit.collider.gameObject]);
+
+            chunks.Remove(hit.collider.gameObject);
             Destroy(hit.collider.gameObject);
         }
     }
@@ -267,4 +289,101 @@ public class Map : MonoBehaviour
     }
 
 
+    public void Save()
+    {
+        MapArea mapArea = new MapArea();
+
+        mapArea.chunks = new List<Chunk>();
+        foreach (var item in chunks)
+        {
+            if (IsSimplify(item.Value))
+                continue;
+
+            Chunk chunk = new Chunk();
+            chunk.pos = item.Key.transform.position;
+            chunk.type = item.Key.name;
+            chunk.quaternion = item.Key.transform.rotation;
+            chunk.coord = item.Value;
+
+            mapArea.chunks.Add(chunk);
+        }
+
+        string json = JsonUtility.ToJson(mapArea);
+        string path = Application.streamingAssetsPath + "/" + saveName.text + ".json";
+        string dir = Path.GetDirectoryName(path);
+
+        if (!Directory.Exists(dir))
+        {
+            Directory.CreateDirectory(dir);
+        }
+
+        Debug.LogError("json:" + json);
+
+        File.WriteAllText(path, json);
+    }
+
+
+
+
+    Vector3Int[] simplifyDir = new Vector3Int[] {
+    new Vector3Int(1,0,0),
+    new Vector3Int(-1,0,0),
+    new Vector3Int(0,1,0),
+    new Vector3Int(0,-1,0),
+    new Vector3Int(0,0,1),
+};
+
+    /// <summary>
+    /// 简化 
+    /// </summary>
+    private bool IsSimplify(Vector3Int key)
+    {
+        foreach (var item in simplifyDir)
+        {
+            if (!chunkCoords.Contains(key + item))
+                return false;
+        }
+        return true;
+    }
+
+
+    public void Load()
+    {
+        string path = Application.streamingAssetsPath + "/" + saveName.text + ".json";
+        string json = File.ReadAllText(path);
+
+        Debug.LogError("load json:" + json);
+
+        MapArea mapArea = JsonUtility.FromJson<MapArea>(json);
+
+        foreach (var item in mapArea.chunks)
+        {
+            GameObject prefab = Resources.Load(item.type) as GameObject;
+            GameObject go = Instantiate(prefab, transform);
+            go.transform.position = item.pos;
+            go.transform.rotation = item.quaternion;
+            go.SetActive(true);
+        }
+    }
+
+}
+
+
+
+[Serializable]
+public class MapArea
+{
+    public int x;
+    public int y;
+    public List<Chunk> chunks;
+}
+
+
+[Serializable]
+public class Chunk
+{
+    public string type;
+    public Vector3Int coord;
+    public Vector3 pos;
+    public Quaternion quaternion;
 }
