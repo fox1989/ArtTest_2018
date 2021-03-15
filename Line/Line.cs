@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class Line : MonoBehaviour
@@ -63,7 +64,69 @@ public class Line : MonoBehaviour
 
     }
 
+    public class MyStream : Stream
+    {
+        public override bool CanRead => throw new System.NotImplementedException();
 
+        public override bool CanSeek => throw new System.NotImplementedException();
+
+        public override bool CanWrite => throw new System.NotImplementedException();
+
+        public override long Length => throw new System.NotImplementedException();
+
+        public override long Position { get => position; set => position = value; }
+
+
+
+        List<FileStream> fileStreams = new List<FileStream>();
+
+        private long position;
+
+
+        public MyStream(List<string> paths)
+        {
+            foreach (var path in paths)
+            {
+                FileStream fileStream = File.OpenRead(path);
+                fileStreams.Add(fileStream);
+            }
+        }
+
+
+
+        public override void Flush()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override int Read(byte[] buffer, int offset, int count)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override long Seek(long offset, SeekOrigin origin)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void SetLength(long value)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void Write(byte[] buffer, int offset, int count)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public class ItemStream { 
+        
+           // public FileStream fil
+        
+        }
+
+
+    }
 
 
 
