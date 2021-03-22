@@ -183,6 +183,27 @@ namespace Map
                 Rotate90(1);
 
             }
+
+            if (Input.GetKeyDown(KeyCode.G))
+            {
+                StartCoroutine(CreateMap());
+            }
+
+
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                LoadMapData();
+            }
+
+
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                CreatMapByCoord(5, 6);
+            }
+
+
+
         }
 
 
@@ -369,16 +390,317 @@ namespace Map
             }
         }
 
+
+
+        /// <summary>
+        /// 已经创建了的坐标
+        /// </summary>
+        Dictionary<Vector2Int, int> hasCoord = new Dictionary<Vector2Int, int>();
+
+
+        public IEnumerator CreateMap()
+        {
+            Debug.LogError("createMap");
+
+            mapData = new MapData();
+
+            for (int x = 0; x < 100; x++)
+            {
+                for (int y = 0; y < 100; y++)
+                {
+                    Vector3Int cell = new Vector3Int(x, y, 0);
+                    Vector3 pos = grid.CellToWorld(cell);
+                    pos.y = 9999;
+
+
+                    Ray r = new Ray(pos, Vector3.down);
+                    RaycastHit hit;
+                    if (Physics.Raycast(r, out hit, float.MaxValue, 1 << LayerMask.NameToLayer("Water")))
+                    {
+
+                        ChunkData chunk = new ChunkData();
+                        chunk.type = "Cube";
+                        chunk.coord = grid.WorldToCell(hit.point);
+                        AddChunk(chunk);
+
+                    }
+                }
+                yield return new WaitForEndOfFrame();
+            }
+
+            mapData.Dic2List();
+
+            Replenish();
+
+
+            string json = JsonUtility.ToJson(mapData);
+            string path = Application.streamingAssetsPath + "/MapData.json";
+            string dir = Path.GetDirectoryName(path);
+
+            if (!Directory.Exists(dir))
+            {
+                Directory.CreateDirectory(dir);
+            }
+
+            Debug.LogError("save");
+            File.WriteAllText(path, json);
+        }
+
+        private void AddChunk(ChunkData chunk, bool addHasCoord = true)
+        {
+            Vector2Int key = new Vector2Int(chunk.coord.x / 10, chunk.coord.y / 10);
+
+            if (!mapData.areaData.ContainsKey(key))
+            {
+                MapArea mapArea = new MapArea();
+                mapArea.x = key.x;
+                mapArea.y = key.y;
+                mapArea.chunks = new List<ChunkData>();
+                mapData.areaData.Add(key, mapArea);
+
+            }
+
+
+            if (chunkCoords.Contains(chunk.coord))
+                return;
+
+            chunkCoords.Add(chunk.coord);
+
+            mapData.areaData[key].chunks.Add(chunk);
+
+            if (addHasCoord)
+                AddHasCoord(chunk);
+
+        }
+
+        void AddHasCoord(ChunkData chunk)
+        {
+            Vector2Int hasKey = new Vector2Int(chunk.coord.x, chunk.coord.y);
+
+            if (!hasCoord.ContainsKey(hasKey))
+                hasCoord.Add(hasKey, chunk.coord.z);
+            else
+            {
+                if (hasCoord[hasKey] > chunk.coord.z)
+                    hasCoord[hasKey] = chunk.coord.z;
+            }
+        }
+
+
+
+        Vector2Int[] replenishDir = new Vector2Int[] {
+             new Vector2Int(1,0),
+             new Vector2Int(0,-1),
+             new Vector2Int(-1,0),
+             new Vector2Int(0,1),
+
+        };
+
+        /// <summary>
+        /// 补全
+        /// </summary>
+        void Replenish()
+        {
+            Debug.LogError("Replenish" + mapData.data.Count);
+            for (int x = 0; x < 100; x++)
+            {
+                for (int y = 0; y < 100; y++)
+                {
+                    Vector2Int hasKey = new Vector2Int(x, y);
+                    foreach (var dir in replenishDir)
+                    {
+                        Vector2Int tempHasKey = hasKey + dir;
+
+                        if (hasCoord.ContainsKey(tempHasKey) && hasCoord[tempHasKey] > hasCoord[hasKey])
+                        {
+                            ///Debug.LogError("Replenish " + "tempHasKey:" + tempHasKey + ":" + hasCoord[tempHasKey] + "  hasKey:" + hasKey + ":" + hasCoord[hasKey]);
+                            int tempz = hasCoord[tempHasKey];
+                            int hasz = hasCoord[hasKey];
+                            for (int z = tempz; z > hasz; z--)
+                            {
+                                ChunkData chunk = new ChunkData();
+                                chunk.type = "Cube";
+                                chunk.coord = new Vector3Int(tempHasKey.x, tempHasKey.y, z);
+                                //Debug.LogError("Replenish" + chunk.coord);
+                                AddChunk(chunk, false);
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+
+        MapData mapData;
+
+        public void LoadMapData()
+        {
+            string path = Application.streamingAssetsPath + "/MapData.json";
+
+            string json = File.ReadAllText(path);
+
+            mapData = JsonUtility.FromJson<MapData>(json);
+            mapData.List2Dic();
+
+
+            CreatMapByCoord(4, 5);
+
+        }
+
+
+
+        Dictionary<Vector3Int, Chunk> currMapData = new Dictionary<Vector3Int, Chunk>();
+        List<MapArea> currMapArea = new List<MapArea>();
+        Vector2Int[] mapAreaDir = new Vector2Int[] {
+             new Vector2Int(1,0),
+             new Vector2Int(0,-1),
+             new Vector2Int(-1,0),
+             new Vector2Int(0,1),
+             new Vector2Int(1,1),
+             new Vector2Int(-1,-1),
+             new Vector2Int(1,-1),
+             new Vector2Int(-1,1),
+        };
+
+        public void CreatMapByCoord(int x, int y)
+        {
+            Vector2Int key = new Vector2Int(x, y);
+
+            List<MapArea> addMapArea = new List<MapArea>();
+            List<MapArea> removeMapArea = new List<MapArea>();
+
+            FindAddAndRemove(key, ref addMapArea, ref removeMapArea);
+
+            RemoveMapArea(removeMapArea);
+            AddMapArea(addMapArea);
+
+        }
+
+
+
+        public void FindAddAndRemove(Vector2Int key, ref List<MapArea> addMapArea, ref List<MapArea> removeMapArea)
+        {
+
+            if (mapData.areaData.ContainsKey(key))
+            {
+                List<MapArea> tempMapArea = new List<MapArea>();
+
+                tempMapArea.Add(mapData.areaData[key]);
+
+                foreach (var dir in mapAreaDir)
+                {
+                    Vector2Int tempKey = key + dir;
+                    if (mapData.areaData.ContainsKey(tempKey))
+                    {
+                        tempMapArea.Add(mapData.areaData[tempKey]);
+
+                    }
+                }
+
+                foreach (var item in tempMapArea)
+                {
+                    MapArea area = currMapArea.Find(a => a.x == item.x && a.y == item.y);
+                    if (area == null)
+                        addMapArea.Add(item);
+                }
+
+                foreach (var item in currMapArea)
+                {
+                    MapArea area = tempMapArea.Find(a => a.x == item.x && a.y == item.y);
+                    if (area == null)
+                        removeMapArea.Add(item);
+                }
+
+
+            }
+
+        }
+
+
+
+        void AddMapArea(List<MapArea> addList)
+        {
+            foreach (var area in addList)
+            {
+                foreach (var chunk in area.chunks)
+                {
+                    Vector3 center = CellToCenter(chunk.coord);
+                    GameObject go = Instantiate(cubePrefab, transform);
+                    go.transform.position = center;
+                    go.SetActive(true);
+                    if (!currMapData.ContainsKey(chunk.coord))
+                        currMapData.Add(chunk.coord, go.GetComponent<Chunk>());
+                }
+                currMapArea.Add(area);
+            }
+        }
+
+        void RemoveMapArea(List<MapArea> removeList)
+        {
+            foreach (var area in removeList)
+            {
+                foreach (var chunk in area.chunks)
+                {
+                    if (currMapData.ContainsKey(chunk.coord))
+                    {
+                        Chunk c = currMapData[chunk.coord];
+                        currMapData.Remove(chunk.coord);
+                        GameObject.Destroy(c.gameObject);
+                    }
+                }
+            }
+
+        }
+
     }
 
 
+
+
+
+
+
+    [Serializable]
+    public class MapData
+    {
+        public Dictionary<Vector2Int, MapArea> areaData = new Dictionary<Vector2Int, MapArea>();
+        public List<MapArea> data = new List<MapArea>();
+
+
+        public void Dic2List()
+        {
+            foreach (var item in areaData)
+            {
+                data.Add(item.Value);
+            }
+
+        }
+
+
+
+        public void List2Dic()
+        {
+            foreach (var item in data)
+            {
+                Vector2Int key = new Vector2Int(item.x, item.y);
+                if (!areaData.ContainsKey(key))
+                {
+                    areaData.Add(key, item);
+                }
+            }
+        }
+    }
 
     [Serializable]
     public class MapArea
     {
         public int x;
         public int y;
-        public List<ChunkData> chunks;
+        public List<ChunkData> chunks = new List<ChunkData>();
     }
     [Serializable]
     public class ChunkData
