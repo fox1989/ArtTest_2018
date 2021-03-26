@@ -14,8 +14,9 @@ public class ImageWrite : MonoBehaviour
 
         texture2D = new Texture2D(500, 500, TextureFormat.ARGB32, false, false);
         GetComponent<Renderer>().material.mainTexture = texture2D;
-        Clear();
 
+        Clear();
+        
     }
 
     public void Clear()
@@ -80,19 +81,22 @@ public class ImageWrite : MonoBehaviour
 
     public void DrawPos(Vector3Int center, float r)
     {
-        int intR = (int)(r * 0.5f);
-        for (int x = -intR; x < intR; x++)
-        {
-            for (int y = -intR; y < intR; y++)
-            {
-                Vector3Int tPos = center + new Vector3Int(x, y, 0);
-                if (Vector3Int.Distance(center, tPos) < r)
-                {
-                    DrawPoint(tPos);
-                }
 
-            }
-        }
+        DrawPoint(center);
+
+        //int intR = (int)(r * 0.5f);
+        //for (int x = -intR; x < intR; x++)
+        //{
+        //    for (int y = -intR; y < intR; y++)
+        //    {
+        //        Vector3Int tPos = center + new Vector3Int(x, y, 0);
+        //        if (Vector3Int.Distance(center, tPos) < r)
+        //        {
+        //            DrawPoint(tPos);
+        //        }
+
+        //    }
+        //}
 
     }
 
