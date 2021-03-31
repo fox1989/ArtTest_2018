@@ -9,14 +9,14 @@
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }//"Queue"="Opaque" }
+        Tags { "RenderType"="Transparent" }//"Queue"="Opaque" "Transparent" }
         LOD 100
 		GrabPass{"_GrabTex"}
 
         Pass
         {
 
-			//Blend SrcAlpha OneMinusSrcAlpha
+			Blend SrcAlpha OneMinusSrcAlpha
 
             CGPROGRAM
             #pragma vertex vert
@@ -87,7 +87,7 @@
      			fixed4 col =lerp(_Color,_DepthColor,saturate(linearEyeDepth*0.05));
 			
 				//return float4(ff,ff,ff,col.a);
-				//col.a=linearEyeDepth*0.1;
+				col.a=linearEyeDepth*0.1;
 				float3 L=normalize( _WorldSpaceLightPos0.xyz);
 				float3 V=normalize( _WorldSpaceCameraPos.xyz-i.worldPos);
 				float3 N=i.normal;
