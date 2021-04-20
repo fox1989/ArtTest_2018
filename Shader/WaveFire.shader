@@ -5,6 +5,11 @@
         _MainTex ("Texture", 2D) = "white" {}
         _UVTex("UvText",2D) = "white"{}
         _Level("Level",float)=0.1
+        _OffsetX("offsetX",float)=0
+        _OffsetY("offsetY",float)=0
+
+        _Speed("Speed",float)=1
+        //_Offset("Offset",Float2)=(0.0,0.0)
     }
     SubShader
     {
@@ -38,6 +43,10 @@
             float4 _MainTex_ST;
             sampler2D _UVTex;
             float _Level;
+            float _OffsetX;
+            float _OffsetY;
+            float _Speed;
+
 
             v2f vert (appdata v)
             {
@@ -51,11 +60,15 @@
             fixed4 frag (v2f i) : SV_Target
             {
                 // sample the texture
-               float2 uv= i.uv+float2(_Time.x,_Time.x);
+               float2 uv= i.uv+float2(_Time.x,_Time.x)*_Speed;
                fixed4 tuv= tex2D(_UVTex,uv);
-                uv=i.uv+tuv*_Level;
+                tuv*=_Level;
+                uv=i.uv+tuv.xy;
+                uv-=float2(_OffsetX,_OffsetY)*_Level;
 
-                fixed4 col = tex2D(_MainTex, uv);
+                fixed4 col = tex2D(_MainTex,uv);
+                fixed4 col1 = tex2D(_MainTex,uv);
+
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;

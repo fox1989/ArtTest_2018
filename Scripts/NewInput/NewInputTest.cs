@@ -42,6 +42,10 @@ public class NewInputTest : MonoBehaviour
 
     }
 
+
+
+
+
     private void Rotation_performed(UnityEngine.Experimental.Input.InputAction.CallbackContext obj)
     {
         Debug.LogError("rotation:" + obj.ReadValue<Vector2>());

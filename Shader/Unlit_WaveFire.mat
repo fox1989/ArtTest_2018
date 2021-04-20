@@ -20,13 +20,16 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: de00d85dc15cc8d4791ad50af5948e47, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4d893cedf817f9345b8f2c423b6360fc, type: 3}
         m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Offset: {x: 0, y: -0.12}
     - _UVTex:
         m_Texture: {fileID: 2800000, guid: 36aadacb39ba8dc43bf431aecaeb4a45, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Level: 0.14
+    - _Level: 0.6
+    - _OffsetX: 1
+    - _OffsetY: 0.5
+    - _Speed: -4.68
     m_Colors: []

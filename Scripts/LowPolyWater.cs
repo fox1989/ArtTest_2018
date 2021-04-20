@@ -29,7 +29,7 @@ public class LowPolyWater : MonoBehaviour
         Vector3[] vertices = new Vector3[triangles.Length];
         for (int i = 0; i < triangles.Length; i++)
         {
-            Debug.LogError("i:" + triangles[i] + "oldver:" + oldVerts[triangles[i]]);
+           /// Debug.LogError("i:" + triangles[i] + "oldver:" + oldVerts[triangles[i]]);
             vertices[i] = oldVerts[triangles[i]];
             triangles[i] = i;
 
