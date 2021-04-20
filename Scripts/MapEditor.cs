@@ -43,6 +43,7 @@ namespace Map
             Add,//添加
             Dle,//删掉
             Select,//选择
+            Selects,//多选择
         }
 
 
@@ -123,6 +124,10 @@ namespace Map
 
         }
 
+
+        bool isMouseDown = false;
+        Vector3 startPos = Vector3.zero;
+        Vector3 endPos = Vector3.zero;
         // Update is called once per frame
         void Update()
         {
@@ -150,6 +155,13 @@ namespace Map
 
             if (Input.GetMouseButtonDown(0))
             {
+
+                if (brushType == BrushType.Selects)
+                {
+                    isMouseDown = true;
+                    startPos = Input.mousePosition;
+                }
+
                 if (raycast)
                 {
 
@@ -164,11 +176,30 @@ namespace Map
                         case BrushType.Select:
                             Select(hit);
                             break;
+                        case BrushType.Selects:
+
+                            break;
                         default:
                             break;
                     }
 
                 }
+            }
+
+            if (Input.GetMouseButton(0) && isMouseDown)
+            {
+
+                if (Input.mousePosition != endPos)
+                {
+                    endPos = Input.mousePosition;
+                    Selects(startPos, endPos);
+                }
+            }
+
+
+            if (Input.GetMouseButtonUp(0) && isMouseDown)
+            {
+                isMouseDown = false;
             }
 
 
@@ -205,6 +236,91 @@ namespace Map
 
 
         }
+
+
+
+        void Selects(Vector3 start, Vector3 end)
+        {
+            foreach (var item in selectGos)
+            {
+                item.gameObject.GetComponentInChildren<Renderer>().material = normalMat;
+            }
+            selectGos.Clear();
+
+            Vector3 rect = end - start;
+
+            int tx = Mathf.Abs(Mathf.CeilToInt(rect.x) / 10) + 1;
+            int ty = Mathf.Abs(Mathf.CeilToInt(rect.y) / 10) + 1;
+
+            rect.x /= tx;
+            rect.y /= ty;
+
+
+            for (int x = 0; x < tx; x++)
+            {
+                for (int y = 0; y < ty; y++)
+                {
+                    Vector3 p = new Vector3(startPos.x + rect.x * x, startPos.y + rect.y * y, 0);
+                    Ray ray = Camera.main.ScreenPointToRay(p);
+                    RaycastHit hit;
+                    bool flag = Physics.Raycast(ray, out hit, float.MaxValue);
+
+
+                    if (flag)
+                    {
+                        if (hit.collider.gameObject.tag == "cube")
+                        {
+                            //Debug.LogError("flag:"+flag+"tag:"+ hit.collider.gameObject.tag);
+                            AddSelectGo(hit.collider.gameObject);
+                        }
+                    }
+                }
+            }
+
+        }
+
+        HashSet<Chunk> selectGos = new HashSet<Chunk>();
+
+        void AddSelectGo(GameObject go)
+        {
+            Chunk chunk = go.GetComponent<Chunk>();
+            if (!selectGos.Contains(chunk))
+            {
+                go.GetComponentInChildren<Renderer>().material = selectMat;
+                selectGos.Add(chunk);
+            }
+        }
+
+
+
+        private void OnGUI()
+        {
+
+            if (isMouseDown)
+            {
+
+                Vector2 pos1 = new Vector2(startPos.x < endPos.x ? startPos.x : endPos.x, startPos.y > endPos.y ? startPos.y :endPos.y  );
+
+                Vector2 pos2 = new Vector2(startPos.x > endPos.x ? startPos.x : endPos.x, startPos.y < endPos.y ? startPos.y : endPos.y);
+
+
+
+
+                //Debug.LogError(startPos);
+                Rect rect = new Rect();
+
+                rect.x = pos1.x;
+                rect.y = Screen.height - pos1.y;
+                rect.width = Mathf.Abs(pos2.x - pos1.x);
+                rect.height = Mathf.Abs(pos2.y - pos1.y);
+
+
+                GUI.Box(rect, "");
+            }
+
+
+        }
+
 
 
 
