@@ -68,7 +68,7 @@
                 // sample the texture
                 fixed4 lut = tex2D(_Lut, float2(halfLam,_SSS));
                 fixed4 col =_Color;// tex2D(_MainTex, i.uv);
-                float4 gg=max(0,pow( dot(V,normalize( N+L)),_GG));
+                float4 gg=max(0,pow( dot(V,normalize(N+L)),_GG));
 
                 //col*=halfLam;//*lut;
                 col*=lut*_Color;
